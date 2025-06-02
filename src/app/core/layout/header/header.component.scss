@@ -2,8 +2,9 @@
     background-image: url('/images/Head.png');
     background-size: cover;
     background-repeat: no-repeat;
+    width: auto;
     height: 12vh;
-    padding: 1rem;
+    padding: 1rem 0;
     .addProduct__btn{
         background-color: #101828;
         border: 1px solid #101828;

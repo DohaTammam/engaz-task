@@ -6,15 +6,7 @@
   [closable]="true"
   [dismissableMask]="true"
 >
-  <div class="d-flex flex-column p-4" [formGroup]="addForm">
-    <div class="card flex justify-center my-1">
-      <input
-        pInputText
-        formControlName="id"
-        class="ng-invalid ng-dirty"
-        placeholder="id"
-      />
-    </div>
+  <div class="d-flex flex-column p-4" [formGroup]="updateForm">
     <div class="card flex justify-center my-1">
       <input
         pInputText
@@ -39,6 +31,6 @@
         placeholder="category"
       />
     </div>
-    <button class="bg-primary p-2 border-primary text-white w-50 m-auto mt-4" (click)="addProduct()">Update</button>
+    <button class="bg-primary p-2 border-primary text-white w-50 m-auto mt-4" (click)="updateProduct()">Update</button>
   </div>
 </p-dialog>

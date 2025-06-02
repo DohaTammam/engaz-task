@@ -52,7 +52,11 @@ export const ProductsStore = signalStore(
       const addProduct$ = productService.addProduct(id, title, price, category);
       try {
         const products = await lastValueFrom(addProduct$);
-        await this.getProducts();
+        
+        const currentProducts = store.products();
+        const updatedProducts = [...(currentProducts ?? []), products];
+
+        patchState(store, { products: updatedProducts });
       } catch (error) {
         console.error(error);
       }
@@ -71,6 +75,7 @@ export const ProductsStore = signalStore(
       );
       try {
         const updateProduct = await lastValueFrom(updateProduct$);
+        this.getProducts();
       } catch (error) {
         console.error(error);
       }

@@ -1,6 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { ProductsStore } from '../../../features/products/store/products.store';
-import { AddProductComponent } from "../../../features/products/dialogs/add-product/add-product.component";
+import { AddProductComponent } from '../../../features/products/dialogs/add-product/add-product.component';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +9,6 @@ import { AddProductComponent } from "../../../features/products/dialogs/add-prod
 })
 export class HeaderComponent {
   addProductVisible = signal<boolean>(false);
-  productService =  inject(ProductsStore);
   addProduct() {
     this.addProductVisible.set(true);
   }
