@@ -10,6 +10,8 @@ import { InputIconModule } from 'primeng/inputicon';
 import { UpdateProductComponent } from '../../dialogs/update-product/update-product.component';
 import { ViewProductComponent } from '../../dialogs/view-product/view-product.component';
 import { Product } from '../../services/products.model';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-product-table',
@@ -17,6 +19,7 @@ import { Product } from '../../services/products.model';
     TableModule,
     CommonModule,
     RatingModule,
+    ToastModule,
     ReactiveFormsModule,
     FormsModule,
     Rating,
@@ -28,8 +31,10 @@ import { Product } from '../../services/products.model';
   ],
   templateUrl: './product-table.component.html',
   styleUrl: './product-table.component.scss',
+  providers: [MessageService],
 })
 export class ProductTableComponent {
+  messageService = inject(MessageService);
   updateProductVisible = signal<boolean>(false);
   viewProductVisible = signal<boolean>(false);
   currentProductId = signal<number>(0);
@@ -40,8 +45,13 @@ export class ProductTableComponent {
     this.updateProductVisible.set(true);
     this.currentProductId.set(id);
   }
-  deleteProduct(id: number) {
-    this.productStore.deleteProduct(id);
+  async deleteProduct(id: number) {
+    await this.productStore.deleteProduct(id);
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'Product Deleted Successfully',
+    });
   }
   viewProduct(product: Product) {
     this.selectedProduct.set(product);

@@ -13,7 +13,15 @@
             <p-inputicon>
               <i class="pi pi-search"></i>
             </p-inputicon>
-            <input pInputText type="text" placeholder="Search keyword"  (input)="titleFilter.set($any($event.target).value);categoryFilter.set($any($event.target).value)"/>
+            <input
+              pInputText
+              type="text"
+              placeholder="Search keyword"
+              (input)="
+                titleFilter.set($any($event.target).value);
+                categoryFilter.set($any($event.target).value)
+              "
+            />
           </p-iconfield>
         </div>
       </ng-template>
@@ -69,3 +77,5 @@
   [product]="selectedProduct()!"
 ></app-view-product>
 }
+
+<p-toast />
