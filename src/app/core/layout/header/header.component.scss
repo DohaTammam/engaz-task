@@ -1,0 +1,15 @@
+.header{
+    background-image: url('/images/Head.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 12vh;
+    padding: 1rem;
+    .addProduct__btn{
+        background-color: #101828;
+        border: 1px solid #101828;
+        color:#fff;
+        padding: 0.5rem 0;
+        border-radius: 10px;
+        width:9rem;
+    }
+}

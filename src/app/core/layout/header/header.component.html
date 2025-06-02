@@ -1,0 +1,11 @@
+<header class="header row">
+  <div class="row justify-content-end align-items-end">
+    <button class="addProduct__btn align-self-end" (click)="addProduct()">
+      + Add Product
+    </button>
+  </div>
+</header>
+
+@if(addProductVisible()){
+<app-add-product [(visible)]="addProductVisible"></app-add-product>
+}
